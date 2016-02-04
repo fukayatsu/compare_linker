@@ -19,6 +19,7 @@ class CompareLinker
   end
 
   def make_compare_links
+    puts "repo_full_name: #{repo_full_name}, pr_number: #{pr_number}"
     if octokit.pull_request_files(repo_full_name, pr_number).find { |resource| resource.filename == "Gemfile.lock" }
       pull_request = octokit.pull_request(repo_full_name, pr_number)
 
